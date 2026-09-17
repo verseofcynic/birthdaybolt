@@ -672,23 +672,72 @@
     dom.openBtn.addEventListener("click", () => openInvitation(d));
   }
 
-  /* ---------- Load invitation data ---------- */
-  async function loadInvitation() {
-    try {
-      const res = await fetch("data/invitation.json", { cache: "no-store" });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
-      let data = await res.json();
-      data = deepMerge(DEFAULTS, data);
-      initConfettiCanvas();
-      renderInvitation(data);
-      dom.loadingScreen.classList.add("hidden");
-      setTimeout(() => { dom.loadingScreen.hidden = true; }, 600);
-      dom.openingScreen.hidden = false;
-    } catch (err) {
-      dom.loadingScreen.hidden = true;
-      dom.errorScreen.hidden = false;
+async function loadInvitation() {
+  try {
+    console.log("1 - loadInvitation() START");
+
+    console.log("2 - Fetching invitation.json...");
+    const res = await fetch("data/invitation.json", {
+      cache: "no-store"
+    });
+
+    console.log("3 - Fetch completed");
+    console.log("   Status:", res.status);
+    console.log("   OK:", res.ok);
+    console.log("   URL:", res.url);
+
+    if (!res.ok) {
+      console.error("4 - Fetch failed with HTTP status:", res.status);
+      throw new Error(`HTTP ${res.status}`);
     }
+
+    console.log("5 - Reading JSON...");
+    let data = await res.json();
+
+    console.log("6 - JSON parsed successfully");
+    console.log("   Raw data:", data);
+
+    console.log("7 - Applying deepMerge...");
+    data = deepMerge(DEFAULTS, data);
+
+    console.log("8 - deepMerge completed");
+    console.log("   Final data:", data);
+
+    console.log("9 - Initializing confetti canvas...");
+    initConfettiCanvas();
+
+    console.log("10 - Rendering invitation...");
+    renderInvitation(data);
+
+    console.log("11 - renderInvitation completed");
+
+    console.log("12 - Hiding loading screen...");
+    dom.loadingScreen.classList.add("hidden");
+
+    setTimeout(() => {
+      console.log("13 - Setting loadingScreen.hidden = true");
+      dom.loadingScreen.hidden = true;
+    }, 600);
+
+    console.log("14 - Showing opening screen...");
+    dom.openingScreen.hidden = false;
+
+    console.log("15 - loadInvitation() SUCCESS");
+
+  } catch (err) {
+    console.error("========== LOAD INVITATION ERROR ==========");
+    console.error("Error:", err);
+    console.error("Message:", err?.message);
+    console.error("Stack:", err?.stack);
+    console.error("===========================================");
+
+    console.log("16 - Hiding loading screen due to error");
+    dom.loadingScreen.hidden = true;
+
+    console.log("17 - Showing error screen");
+    dom.errorScreen.hidden = false;
   }
+}
 
   /* ---------- Boot ---------- */
   if (document.readyState === "loading") {
