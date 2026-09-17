@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#7A3E9D" />
+  <meta name="description" content="" />
+  <meta property="og:title" content="" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="" />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="" />
+  <meta name="twitter:description" content="" />
+  <meta name="twitter:image" content="" />
+
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg" id="favicon-link" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@400;600;700;800&display=swap" />
+  <link rel="stylesheet" href="style.css" />
+
+  <title>Birthday Invitation</title>
+</head>
+<body>
+  <!-- Loading screen -->
+  <div id="loading-screen" class="loading-screen" role="status" aria-live="polite">
+    <div class="loading-balloon" aria-hidden="true">🎈</div>
+    <p class="loading-text" id="loading-text">Preparing Something Special…</p>
+  </div>
+
+  <!-- Error screen -->
+  <div id="error-screen" class="error-screen" hidden>
+    <div class="error-content">
+      <div class="error-emoji" aria-hidden="true">😢</div>
+      <h1 class="error-title">Unable to load invitation details</h1>
+      <p class="error-message">Please try again later.</p>
+    </div>
+  </div>
+
+  <!-- Opening screen -->
+  <div id="opening-screen" class="opening-screen" hidden>
+    <div class="opening-decorations" aria-hidden="true">
+      <div class="opening-balloons" id="opening-balloons"></div>
+    </div>
+    <div class="opening-content">
+      <div class="opening-emoji" aria-hidden="true">🎈</div>
+      <p class="opening-eyebrow" id="opening-eyebrow">A SPECIAL DAY IS COMING…</p>
+      <h1 class="opening-title" id="opening-title">You're Invited!</h1>
+      <p class="opening-subtitle" id="opening-subtitle">to celebrate</p>
+      <div class="opening-name-wrap">
+        <h2 class="opening-name" id="opening-name"></h2>
+        <p class="opening-age" id="opening-age"></p>
+      </div>
+      <div class="opening-emoji-cake" aria-hidden="true">🎂</div>
+      <button class="opening-button" id="open-invitation-btn" type="button">
+        <span aria-hidden="true">🎁</span>
+        <span>Open Invitation</span>
+      </button>
+    </div>
+    <div id="opening-confetti" class="confetti-layer" aria-hidden="true"></div>
+  </div>
+
+  <!-- Main invitation -->
+  <div id="invitation-app" class="invitation-app" hidden>
+    <!-- Decorative floating elements -->
+    <div class="floating-decorations" id="floating-decorations" aria-hidden="true"></div>
+
+    <!-- Hero section -->
+    <section id="hero" class="hero" aria-label="Invitation hero">
+      <div class="hero-balloons" id="hero-balloons" aria-hidden="true"></div>
+      <div class="hero-content">
+        <p class="hero-eyebrow" id="hero-eyebrow"></p>
+        <p class="hero-subtitle-text" id="hero-subtitle-text"></p>
+        <div class="hero-name-wrap">
+          <h1 class="hero-name" id="hero-name"></h1>
+          <div class="hero-age-badge" id="hero-age-badge"></div>
+        </div>
+        <p class="hero-turning" id="hero-turning"></p>
+        <div class="hero-photo-wrap" id="hero-photo-wrap"></div>
+        <div class="hero-cake" aria-hidden="true">🎂</div>
+      </div>
+      <div class="hero-scroll-hint" aria-hidden="true">
+        <span>Scroll</span>
+        <div class="hero-scroll-arrow"></div>
+      </div>
+    </section>
+
+    <!-- Message section -->
+    <section id="message" class="message-section" aria-label="Birthday message">
+      <div class="section-inner">
+        <div class="message-card reveal">
+          <div class="message-deco" aria-hidden="true">✨</div>
+          <h2 class="message-headline" id="message-headline"></h2>
+          <p class="message-text" id="message-text"></p>
+          <div class="message-deco-bottom" aria-hidden="true">✨</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Countdown section -->
+    <section id="countdown" class="countdown-section" aria-label="Countdown timer">
+      <div class="section-inner">
+        <h2 class="countdown-title reveal" id="countdown-title">The Fun Begins In…</h2>
+        <div class="countdown-grid reveal" id="countdown-grid"></div>
+        <div class="countdown-complete" id="countdown-complete" hidden>
+          <span class="countdown-complete-emoji" aria-hidden="true">🎉</span>
+          <p>It's Party Time!</p>
+          <span class="countdown-complete-emoji" aria-hidden="true">🎉</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Event details section -->
+    <section id="event-details" class="event-section" aria-label="Event details">
+      <div class="section-inner">
+        <h2 class="section-heading reveal">Party Details</h2>
+        <div class="event-card reveal">
+          <div class="event-row">
+            <div class="event-icon" aria-hidden="true">📅</div>
+            <div class="event-info">
+              <h3 class="event-label">Date</h3>
+              <p class="event-value" id="event-date"></p>
+            </div>
+          </div>
+          <div class="event-divider"></div>
+          <div class="event-row">
+            <div class="event-icon" aria-hidden="true">🕐</div>
+            <div class="event-info">
+              <h3 class="event-label">Time</h3>
+              <p class="event-value" id="event-time"></p>
+            </div>
+          </div>
+          <div class="event-divider"></div>
+          <div class="event-row">
+            <div class="event-icon" aria-hidden="true">📍</div>
+            <div class="event-info">
+              <h3 class="event-label">Venue</h3>
+              <p class="event-value" id="event-venue-name"></p>
+              <p class="event-sub-value" id="event-venue-address"></p>
+            </div>
+          </div>
+          <div class="event-map-btn-wrap" id="event-map-wrap"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Activities section -->
+    <section id="activities" class="activities-section" aria-label="Party activities">
+      <div class="section-inner">
+        <h2 class="section-heading reveal">What's Waiting For You?</h2>
+        <div class="activities-grid" id="activities-grid"></div>
+      </div>
+    </section>
+
+    <!-- Gallery section -->
+    <section id="gallery" class="gallery-section" aria-label="Photo gallery">
+      <div class="section-inner">
+        <h2 class="section-heading reveal">Birthday Memories</h2>
+        <div class="gallery-grid" id="gallery-grid"></div>
+      </div>
+    </section>
+
+    <!-- RSVP section -->
+    <section id="rsvp" class="rsvp-section" aria-label="RSVP" hidden>
+      <div class="section-inner">
+        <div class="rsvp-card reveal">
+          <div class="rsvp-deco" aria-hidden="true">💌</div>
+          <h2 class="rsvp-title" id="rsvp-title"></h2>
+          <p class="rsvp-message" id="rsvp-message"></p>
+          <a class="rsvp-button" id="rsvp-button" href="#" target="_blank" rel="noopener noreferrer">
+            <span aria-hidden="true">💬</span>
+            <span id="rsvp-button-text"></span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="footer" class="footer" aria-label="Footer">
+      <p class="footer-message" id="footer-message"></p>
+      <p class="footer-made-with" id="footer-made-with" hidden>Made with love ❤️</p>
+    </footer>
+  </div>
+
+  <!-- Music control -->
+  <button id="music-control" class="music-control" hidden aria-label="Play or pause music" type="button">
+    <span class="music-icon" id="music-icon" aria-hidden="true">🎵</span>
+  </button>
+
+  <!-- Lightbox -->
+  <div id="lightbox" class="lightbox" hidden role="dialog" aria-modal="true" aria-label="Photo viewer">
+    <button class="lightbox-close" id="lightbox-close" aria-label="Close">✕</button>
+    <button class="lightbox-prev" id="lightbox-prev" aria-label="Previous">‹</button>
+    <img class="lightbox-image" id="lightbox-image" src="" alt="" />
+    <button class="lightbox-next" id="lightbox-next" aria-label="Next">›</button>
+    <p class="lightbox-caption" id="lightbox-caption"></p>
+    <span class="lightbox-counter" id="lightbox-counter"></span>
+  </div>
+
+  <!-- Confetti canvas -->
+  <canvas id="confetti-canvas" class="confetti-canvas" aria-hidden="true"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,145 @@
+{
+  "invitation": {
+    "eventType": "birthday",
+    "title": "You're Invited!",
+    "subtitle": "A Magical Birthday Celebration",
+    "theme": "magical",
+    "language": "en",
+    "favicon": "assets/icons/favicon.svg"
+  },
+
+  "child": {
+    "name": "Aarav",
+    "nickname": "Aaru",
+    "age": 5,
+    "gender": "boy",
+    "photo": "https://images.pexels.com/photos/13614367/pexels-photo-13614367.jpeg?auto=compress&cs=tinysrgb&h=800&w=600"
+  },
+
+  "birthday": {
+    "date": "2026-10-18",
+    "displayDate": "",
+    "day": "",
+    "time": "5:00 PM",
+    "endTime": "8:00 PM",
+    "timezone": "+05:30"
+  },
+
+  "venue": {
+    "name": "Wonderland Kids Arena",
+    "address": "123 Celebration Road, Trivandrum",
+    "mapUrl": "https://www.google.com/maps/search/?api=1&query=Trivandrum+Kerala",
+    "latitude": null,
+    "longitude": null
+  },
+
+  "host": {
+    "name": "The Sharma Family",
+    "phone": "",
+    "whatsapp": "919999999999"
+  },
+
+  "message": {
+    "headline": "Come Celebrate With Me!",
+    "text": "It's going to be a day full of laughter, games, cake, and lots of happy memories. Your presence will make my special day even more special!"
+  },
+
+  "theme": {
+    "style": "magical",
+    "primaryColor": "#7A3E9D",
+    "secondaryColor": "#F7C948",
+    "accentColor": "#FF6B81",
+    "backgroundColor": "#FFF9F0",
+    "surfaceColor": "#FFFFFF",
+    "textColor": "#30243A",
+    "mutedColor": "#756B7A"
+  },
+
+  "hero": {
+    "backgroundImage": "",
+    "illustration": "",
+    "showConfetti": true,
+    "showBalloons": true
+  },
+
+  "gallery": [
+    {
+      "image": "https://images.pexels.com/photos/30218071/pexels-photo-30218071.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "caption": "Blowing out the candles"
+    },
+    {
+      "image": "https://images.pexels.com/photos/7600387/pexels-photo-7600387.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "caption": "Party time with friends"
+    },
+    {
+      "image": "https://images.pexels.com/photos/34726198/pexels-photo-34726198.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "caption": "Balloon fun"
+    },
+    {
+      "image": "https://images.pexels.com/photos/9627763/pexels-photo-9627763.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "caption": "Birthday treats"
+    },
+    {
+      "image": "https://images.pexels.com/photos/27176026/pexels-photo-27176026.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "caption": "Party spread"
+    },
+    {
+      "image": "https://images.pexels.com/photos/17917264/pexels-photo-17917264.jpeg?auto=compress&cs=tinysrgb&h=650&w=940",
+      "caption": "Cake cutting"
+    }
+  ],
+
+  "activities": [
+    {
+      "icon": "🎈",
+      "title": "Fun Games",
+      "description": "Exciting games and challenges for everyone"
+    },
+    {
+      "icon": "🎂",
+      "title": "Birthday Cake",
+      "description": "A special cake-cutting celebration"
+    },
+    {
+      "icon": "🎨",
+      "title": "Creative Fun",
+      "description": "Arts, crafts and colorful activities"
+    },
+    {
+      "icon": "🎁",
+      "title": "Gift Surprises",
+      "description": "Surprise gifts for all the little guests"
+    },
+    {
+      "icon": "🎵",
+      "title": "Music & Dance",
+      "description": "Dance to your favorite tunes"
+    },
+    {
+      "icon": "🍔",
+      "title": "Yummy Food",
+      "description": "Delicious treats for everyone"
+    }
+  ],
+
+  "music": {
+    "enabled": true,
+    "file": "assets/music/birthday.mp3",
+    "loop": true,
+    "autoplay": false
+  },
+
+  "rsvp": {
+    "enabled": true,
+    "title": "Will You Join The Fun?",
+    "message": "We'd love to celebrate with you! Please let us know if you can make it.",
+    "buttonText": "RSVP on WhatsApp",
+    "whatsappNumber": "919999999999",
+    "message": "Hi! We would love to attend Aarav's 5th birthday celebration on 18 October 2026."
+  },
+
+  "footer": {
+    "message": "Can't wait to celebrate with you!",
+    "showMadeWith": false
+  }
+}
